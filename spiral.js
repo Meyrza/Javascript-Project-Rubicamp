@@ -3,7 +3,7 @@ function spiral(n) {
   const matrix = Array.from({ length: n }, () =>
     Array.from({ length: n }, () => num++)
   )
-
+console.log(matrix)
   const result = [];
   let atas = 0, bawah = n - 1
   let kiri = 0, kanan = n - 1

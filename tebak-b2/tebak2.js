@@ -10,7 +10,8 @@ if (!fileName) {
 let questions = JSON.parse(fs.readFileSync(fileName));
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
-let i = 0, wrong = 0, skipped = [];
+let i = 0;
+let skipped = [];
 
 console.log(`Selamat datang di permainan Tebak-tebakan dari file '${fileName}'!\nKetik 'skip' untuk melewati pertanyaan.\n`);
 
@@ -20,25 +21,32 @@ function ask() {
       questions = skipped;
       skipped = [];
       i = 0;
-      wrong = 0;
       return ask();
     }
     console.log("\nAnda Berhasil!");
     return rl.close();
   }
 
-  rl.question(`Pertanyaan: ${questions[i].question}\nJawaban: `, (jawab) => {
-    if (jawab.toLowerCase() === questions[i].answer.toLowerCase()) {
-      console.log("Anda Beruntung!\n");
-      i++;
-    } else if (jawab.toLowerCase() === 'skip') {
-      skipped.push(questions[i++]);
-    } else {
-      wrong++;
-      console.log(`Anda Kurang Beruntung! anda telah salah ${wrong} kali, silahkan coba lagi.`);
-    }
-    ask();
-  });
+  let wrong = 0; // Kesalahan hanya untuk soal saat ini
+
+  function promptQuestion() {
+    rl.question(`Pertanyaan: ${questions[i].question}\nJawaban: `, (jawab) => {
+      if (jawab.toLowerCase() === questions[i].answer.toLowerCase()) {
+        console.log("Anda Beruntung!\n");
+        i++;
+        ask(); // Lanjut ke soal berikutnya
+      } else if (jawab.toLowerCase() === 'skip') {
+        skipped.push(questions[i++]);
+        ask(); // Lanjut ke soal berikutnya
+      } else {
+        wrong++;
+        console.log(`Anda Kurang Beruntung! Anda telah salah ${wrong} kali untuk soal ini, silakan coba lagi.`);
+        promptQuestion(); // Tetap di soal yang sama
+      }
+    });
+  }
+
+  promptQuestion();
 }
 
 ask();

@@ -1,4 +1,3 @@
--- BIKIN TABLE2 YG KRUSIAL TENTANG PERKULIAHAN
 CREATE TABLE jurusan (
     id_jurusan INTEGER PRIMARY KEY AUTOINCREMENT,
     nama_jurusan TEXT NOT NULL
@@ -36,7 +35,6 @@ CREATE TABLE nilai (
     FOREIGN KEY (id_dosen) REFERENCES dosen(id_dosen)
 );
 
--- MASUKIN NILAI DI TIAP2 TABLE
 INSERT INTO jurusan (nama_jurusan) VALUES
 ('Teknik Informatika'),
 ('Sistem Informasi'),

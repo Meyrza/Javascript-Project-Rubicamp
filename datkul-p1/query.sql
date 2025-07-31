@@ -21,6 +21,7 @@ CREATE TABLE matakuliah (
     nama TEXT NOT NULL,
     sks INTEGER,
     id_dosen INTEGER,
+    FOREIGN KEY (id_dosen) REFERENCES dosen(id_dosen)
 );
 
 CREATE TABLE nilai (

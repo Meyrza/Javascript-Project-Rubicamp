@@ -1,8 +1,10 @@
+-- Tabel Jurusan
 CREATE TABLE jurusan (
     id_jurusan INTEGER PRIMARY KEY AUTOINCREMENT,
     nama_jurusan TEXT NOT NULL
 );
 
+-- Tabel Mahasiswa
 CREATE TABLE mahasiswa (
     nim TEXT PRIMARY KEY,
     nama TEXT NOT NULL,
@@ -11,11 +13,13 @@ CREATE TABLE mahasiswa (
     FOREIGN KEY (id_jurusan) REFERENCES jurusan(id_jurusan)
 );
 
+-- Tabel Dosen
 CREATE TABLE dosen (
     id_dosen INTEGER PRIMARY KEY AUTOINCREMENT,
     nama TEXT NOT NULL
 );
 
+-- Tabel Matakuliah
 CREATE TABLE matakuliah (
     id_matkul INTEGER PRIMARY KEY AUTOINCREMENT,
     nama TEXT NOT NULL,
@@ -24,15 +28,14 @@ CREATE TABLE matakuliah (
     FOREIGN KEY (id_dosen) REFERENCES dosen(id_dosen)
 );
 
+-- Tabel Nilai (disederhanakan)
 CREATE TABLE nilai (
     id_nilai INTEGER PRIMARY KEY AUTOINCREMENT,
     nim TEXT,
     id_matkul INTEGER,
-    id_dosen INTEGER,
     nilai REAL,
     FOREIGN KEY (nim) REFERENCES mahasiswa(nim),
-    FOREIGN KEY (id_matkul) REFERENCES matakuliah(id_matkul),
-    FOREIGN KEY (id_dosen) REFERENCES dosen(id_dosen)
+    FOREIGN KEY (id_matkul) REFERENCES matakuliah(id_matkul)
 );
 
 INSERT INTO jurusan (nama_jurusan) VALUES

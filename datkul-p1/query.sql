@@ -58,3 +58,9 @@ INSERT INTO mahasiswa (nim, nama, alamat, id_jurusan) VALUES
 ('M03', 'Riko Pratama', 'Jl. Kenanga No.3', 'J01'),
 ('M04', 'Lina Putri', 'Jl. Melati No.4', 'J03');
 
+-- Matakuliah
+INSERT INTO matakuliah (id_matkul, nama, sks, id_dosen) VALUES
+('MK1', 'Basis Data', 3, 'D01'),
+('MK2', 'Pemrograman', 4, 'D02'),
+('MK3', 'Manajemen Proyek', 2, 'D03');
+

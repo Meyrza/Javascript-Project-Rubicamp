@@ -44,3 +44,17 @@ INSERT INTO jurusan (id_jurusan, nama_jurusan) VALUES
 ('J02', 'Sistem Informasi'),
 ('J03', 'Manajemen');
 
+
+-- Dosen
+INSERT INTO dosen (id_dosen, nama) VALUES
+('D01', 'Budi Santoso'),
+('D02', 'Ani Lestari'),
+('D03', 'Rudi Hartono');
+
+-- Mahasiswa
+INSERT INTO mahasiswa (nim, nama, alamat, id_jurusan) VALUES
+('M01', 'Andi Wijaya', 'Jl. Merdeka No.1', 'J01'),
+('M02', 'Sinta Dewi', 'Jl. Mawar No.2', 'J02'),
+('M03', 'Riko Pratama', 'Jl. Kenanga No.3', 'J01'),
+('M04', 'Lina Putri', 'Jl. Melati No.4', 'J03');
+

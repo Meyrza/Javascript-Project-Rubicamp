@@ -43,3 +43,4 @@ INSERT INTO jurusan (id_jurusan, nama_jurusan) VALUES
 ('J01', 'Teknik Informatika'),
 ('J02', 'Sistem Informasi'),
 ('J03', 'Manajemen');
+

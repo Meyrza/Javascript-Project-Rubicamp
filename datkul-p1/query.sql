@@ -57,7 +57,7 @@ INSERT INTO mahasiswa (nim, nama, alamat, tgl_lahir, id_jurusan) VALUES
 ('M001', 'Andi', 'Jakarta', '2008-05-10', 'J01'),
 ('M002', 'Budi', 'Bandung', '2002-08-15', 'J02'),
 ('M003', 'Citra', 'Surabaya', '2004-03-20', 'J03'),
-('M004', 'Dewi', 'Depok', '2001-12-05', 'J04'),
+('M004', 'Dewi', 'Depok', '2001-12-05', 'J02'),
 ('M005', 'Rani', 'Bogor', '2007-10-15', 'J01');
 
 -- Matakuliah

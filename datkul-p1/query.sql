@@ -6,11 +6,12 @@ CREATE TABLE jurusan (
 
 -- Tabel Mahasiswa
 CREATE TABLE mahasiswa (
-    nim VARCHAR(4) PRIMARY KEY,
-    nama VARCHAR(50) NOT NULL,
-    alamat TEXT,
-    id_jurusan VARCHAR(4),
-    FOREIGN KEY (id_jurusan) REFERENCES jurusan(id_jurusan)
+  nim VARCHAR(4) PRIMARY KEY,
+  nama VARCHAR(50),
+  alamat TEXT,
+  tgl_lahir TEXT,
+  id_jurusan VARCHAR(4),
+  FOREIGN KEY (id_jurusan) REFERENCES jurusan(id_jurusan)
 );
 
 -- Tabel Dosen
@@ -33,7 +34,7 @@ CREATE TABLE nilai (
     id_nilai VARCHAR(4) PRIMARY KEY,
     nim VARCHAR(4),
     id_matkul VARCHAR(4),
-    nilai REAL,
+    nilai VARCHAR,
     FOREIGN KEY (nim) REFERENCES mahasiswa(nim),
     FOREIGN KEY (id_matkul) REFERENCES matakuliah(id_matkul)
 );
@@ -52,11 +53,12 @@ INSERT INTO dosen (id_dosen, nama) VALUES
 ('D03', 'Rudi Hartono');
 
 -- Mahasiswa
-INSERT INTO mahasiswa (nim, nama, alamat, id_jurusan) VALUES
-('M01', 'Andi Wijaya', 'Jl. Merdeka No.1', 'J01'),
-('M02', 'Sinta Dewi', 'Jl. Mawar No.2', 'J02'),
-('M03', 'Riko Pratama', 'Jl. Kenanga No.3', 'J01'),
-('M04', 'Lina Putri', 'Jl. Melati No.4', 'J03');
+INSERT INTO mahasiswa (nim, nama, alamat, tgl_lahir, id_jurusan) VALUES
+('M001', 'Andi', 'Jakarta', '2008-05-10', 'J01'),
+('M002', 'Budi', 'Bandung', '2002-08-15', 'J02'),
+('M003', 'Citra', 'Surabaya', '2004-03-20', 'J03'),
+('M004', 'Dewi', 'Depok', '2001-12-05', 'J04'),
+('M005', 'Rani', 'Bogor', '2007-10-15', 'J01');
 
 -- Matakuliah
 INSERT INTO matakuliah (id_matkul, nama, sks, id_dosen) VALUES
@@ -66,9 +68,9 @@ INSERT INTO matakuliah (id_matkul, nama, sks, id_dosen) VALUES
 
 -- Nilai
 INSERT INTO nilai (id_nilai, nim, id_matkul, nilai) VALUES
-('N01', 'M01', 'MK1', 85.5),
-('N02', 'M01', 'MK2', 90.0),
-('N03', 'M02', 'MK3', 78.0),
-('N04', 'M03', 'MK1', 88.0),
-('N05', 'M03', 'MK2', 92.0),
-('N06', 'M04', 'MK3', 80.0);
+('N01', 'M01', 'MK1', 'B'),
+('N02', 'M01', 'MK2', 'A'),
+('N03', 'M02', 'MK3', 'B'),
+('N04', 'M03', 'MK1', 'B'),
+('N05', 'M03', 'MK2', 'E'),
+('N06', 'M04', 'MK3', 'C');

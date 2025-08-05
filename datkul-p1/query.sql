@@ -68,9 +68,84 @@ INSERT INTO matakuliah (id_matkul, nama, sks, id_dosen) VALUES
 
 -- Nilai
 INSERT INTO nilai (id_nilai, nim, id_matkul, nilai) VALUES
-('N01', 'M01', 'MK1', 'B'),
-('N02', 'M01', 'MK2', 'A'),
-('N03', 'M02', 'MK3', 'B'),
-('N04', 'M03', 'MK1', 'B'),
-('N05', 'M03', 'MK2', 'E'),
-('N06', 'M04', 'MK3', 'C');
+('N01', 'M001', 'MK1', 'A'),
+('N02', 'M001', 'MK2', 'B'),
+('N03', 'M001', 'MK3', 'A'),
+('N04', 'M001', 'MK2', 'A'),
+('N05', 'M002', 'MK1', 'B'),
+('N06', 'M002', 'MK2', 'A'),
+('N08', 'M004', 'MK3', 'C'),
+('N09', 'M003', 'MK2', 'B'),
+('N10', 'M003', 'MK2', 'C'),
+('N11', 'M004', 'MK3', 'E');
+
+-- no.1
+SELECT 
+  m.*, 
+  j.nama_jurusan
+FROM mahasiswa m
+JOIN jurusan j ON m.id_jurusan = j.id_jurusan;
+-- no.2
+SELECT 
+  nim, 
+  nama, 
+  tgl_lahir,
+  CAST(strftime('%Y', '2025-01-01') AS INTEGER) - CAST(strftime('%Y', tgl_lahir) AS INTEGER) AS umur
+FROM mahasiswa
+WHERE CAST(strftime('%Y', '2025-01-01') AS INTEGER) - CAST(strftime('%Y', tgl_lahir) AS INTEGER) < 20;
+-- no.3
+SELECT DISTINCT
+  m.nim,
+  m.nama
+FROM nilai n
+JOIN mahasiswa m ON n.nim = m.nim
+WHERE n.nilai IN ('A', 'B');
+-- no.4
+SELECT 
+  m.nim, 
+  m.nama, 
+  SUM(mk.sks) AS total_sks
+FROM nilai n
+JOIN mahasiswa m ON n.nim = m.nim
+JOIN matakuliah mk ON n.id_matkul = mk.id_matkul
+GROUP BY m.nim, m.nama
+HAVING total_sks > 10;
+-- no.5
+SELECT 
+  m.nim, 
+  m.nama, 
+  mk.nama AS nama_matkul
+FROM nilai n
+JOIN mahasiswa m ON n.nim = m.nim
+JOIN matakuliah mk ON n.id_matkul = mk.id_matkul
+WHERE LOWER(mk.nama) = 'basis data';
+-- no.6
+SELECT 
+  d.nama AS nama_dosen,
+  COUNT(DISTINCT n.nim) AS jumlah_mahasiswa
+FROM nilai n
+JOIN matakuliah mk ON n.id_matkul = mk.id_matkul
+JOIN dosen d ON mk.id_dosen = d.id_dosen
+GROUP BY d.nama;
+-- no.7
+SELECT 
+  nim, 
+  nama, 
+  tgl_lahir,
+  CAST(strftime('%Y', '2025-01-01') AS INTEGER) - CAST(strftime('%Y', tgl_lahir) AS INTEGER) AS umur
+FROM mahasiswa
+ORDER BY umur DESC;
+-- no.8
+SELECT
+  m.nim,
+  m.nama AS nama_mahasiswa,
+  j.nama_jurusan,
+  mk.nama AS nama_matkul,
+  d.nama AS nama_dosen,
+  n.nilai
+FROM nilai n
+JOIN mahasiswa m ON n.nim = m.nim
+JOIN jurusan j ON m.id_jurusan = j.id_jurusan
+JOIN matakuliah mk ON n.id_matkul = mk.id_matkul
+JOIN dosen d ON mk.id_dosen = d.id_dosen
+WHERE n.nilai IN ('D', 'E');

@@ -90,9 +90,9 @@ SELECT
   nim, 
   nama, 
   tgl_lahir,
-  CAST(strftime('%Y', '2025-01-01') AS INTEGER) - CAST(strftime('%Y', tgl_lahir) AS INTEGER) AS umur
+  CAST(strftime('%Y', 'now') AS INTEGER) - CAST(strftime('%Y', tgl_lahir) AS INTEGER) AS umur
 FROM mahasiswa
-WHERE CAST(strftime('%Y', '2025-01-01') AS INTEGER) - CAST(strftime('%Y', tgl_lahir) AS INTEGER) < 20;
+WHERE CAST(strftime('%Y', 'now') AS INTEGER) - CAST(strftime('%Y', tgl_lahir) AS INTEGER) < 20;
 -- no.3
 SELECT DISTINCT
   m.nim,

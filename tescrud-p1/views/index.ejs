@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JSON CRUD</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>JSON CRUD (Create, Read, Update, Delete)</h1>
+  <a href="/add" class="btn">Create</a>
+  <table border="1" cellpadding="5">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Height</th>
+        <th>Weight</th>
+        <th>Birth Date</th>
+        <th>Is Married</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% people.forEach((p, i) => { %>
+        <tr>
+          <td><%= i+1 %></td>
+          <td><%= p.name %></td>
+          <td><%= p.height %></td>
+          <td><%= p.weight %></td>
+          <td><%= p.birthdate %></td>
+          <td><%= p.married ? "Yes" : "No" %></td>
+          <td>
+            <a href="/edit/<%= i %>">Update</a> |
+            <a href="/delete/<%= i %>" onclick="return confirm('Yakin hapus data ini?')">Delete</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>

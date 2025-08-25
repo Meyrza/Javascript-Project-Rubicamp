@@ -1,22 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Edit Data</title>
+  <meta charset="UTF-8">
+  <title>Edit Data Orang</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <h1>Edit Data</h1>
-  <form method="POST" action="/edit/<%= index %>">
-    <input type="text" name="name" value="<%= person.name %>" required><br>
-    <input type="number" name="height" value="<%= person.height %>" required><br>
-    <input type="number" step="0.01" name="weight" value="<%= person.weight %>" required><br>
-    <input type="date" name="birthdate" value="<%= person.birthdate %>" required><br>
-    <select name="married" required>
-      <option value="true" <%= person.married ? "selected" : "" %>>True</option>
-      <option value="false" <%= !person.married ? "selected" : "" %>>False</option>
-    </select><br>
-    <button type="submit">Update</button>
-    <a href="/">Cancel</a>
+<div class="form-box">
+  <form action="/edit/<%= index %>" method="POST">
+    <label for="name">Nama</label>
+    <input type="text" id="name" name="name" value="<%= person.name %>" required>
+
+    <label for="height">Tinggi (cm)</label>
+    <input type="text" id="height" name="height" value="<%= person.height %>" required>
+
+    <label for="weight">Berat (kg)</label>
+    <input type="text" id="weight" name="weight" value="<%= person.weight %>" required>
+
+    <label for="birthdate">Tanggal Lahir</label>
+    <input type="date" id="birthdate" name="birthdate" value="<%= person.birthdate %>" required>
+
+    <label for="married">Status</label>
+    <select id="married" name="married">
+      <option value="false" <%= person.married ? "" : "selected" %>>Belum Menikah</option>
+      <option value="true" <%= person.married ? "selected" : "" %>>Menikah</option>
+    </select>
+
+    <input type="submit" value="Update">
   </form>
+
+  <a href="/" class="cancel-btn">Cancel</a>
+</div>
+
 </body>
 </html>

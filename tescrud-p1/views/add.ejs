@@ -1,22 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Add Data</title>
+  <meta charset="UTF-8">
+  <title>Tambah Data Orang</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <h1>Add Data</h1>
-  <form method="POST" action="/add">
-    <input type="text" name="name" placeholder="Name" required><br>
-    <input type="number" name="height" placeholder="Height" required><br>
-    <input type="number" step="0.01" name="weight" placeholder="Weight" required><br>
-    <input type="date" name="birthdate" required><br>
-    <select name="married" required>
-      <option value="true">True</option>
-      <option value="false">False</option>
-    </select><br>
-    <button type="submit">Save</button>
-    <a href="/">Cancel</a>
+<div class="form-box">
+  <form action="/add" method="POST">
+    <label for="name">Nama</label>
+    <input type="text" id="name" name="name" placeholder="Masukkan nama.." required>
+
+    <label for="height">Tinggi (cm)</label>
+    <input type="text" id="height" name="height" placeholder="Masukkan tinggi badan.." required>
+
+    <label for="weight">Berat (kg)</label>
+    <input type="text" id="weight" name="weight" placeholder="Masukkan berat badan.." required>
+
+    <label for="birthdate">Tanggal Lahir</label>
+    <input type="date" id="birthdate" name="birthdate" required>
+
+    <label for="married">Status</label>
+    <select id="married" name="married">
+      <option value="false">Belum Menikah</option>
+      <option value="true">Menikah</option>
+    </select>
+
+    <input type="submit" value="Save">
   </form>
+
+  <a href="/" class="cancel-btn">Cancel</a>
+</div>
+
 </body>
 </html>

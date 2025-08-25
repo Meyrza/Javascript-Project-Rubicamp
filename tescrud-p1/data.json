@@ -11,13 +11,27 @@
     "height": 171,
     "weight": 57.699,
     "birthdate": "1996-11-03",
-    "married": true
+    "married": false
   },
   {
-    "name": "Aziz",
+    "name": "Ahmad",
     "height": 167,
     "weight": 57.5,
     "birthdate": "1996-05-13",
+    "married": true
+  },
+  {
+    "name": "Ihsan s",
+    "height": 175,
+    "weight": 59.23,
+    "birthdate": "1999-02-21",
+    "married": true
+  },
+  {
+    "name": "Sapa",
+    "height": 153,
+    "weight": 66.85,
+    "birthdate": "2000-12-10",
     "married": false
   }
 ]

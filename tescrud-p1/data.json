@@ -1,6 +1,6 @@
 [
   {
-    "name": "Himawan",
+    "name": "Akmal",
     "height": 168,
     "weight": 80.52,
     "birthdate": "1991-03-12",
@@ -21,17 +21,17 @@
     "married": true
   },
   {
-    "name": "Ihsan s",
-    "height": 175,
-    "weight": 59.23,
-    "birthdate": "1999-02-21",
+    "name": "Awiw",
+    "height": 150,
+    "weight": 87,
+    "birthdate": "1955-02-15",
     "married": true
   },
   {
-    "name": "Sapa",
-    "height": 153,
-    "weight": 66.85,
-    "birthdate": "2000-12-10",
+    "name": "Jipo",
+    "height": 164,
+    "weight": 55.3,
+    "birthdate": "2004-11-21",
     "married": false
   }
 ]
